@@ -18,6 +18,7 @@ A custom unix shell, written in multiple languages.
 - built-in commands:
   - `ls`
   - `cd`
+- the executable is called `ysh-YOUR_LANGUAGE` to avoid name collisions
 
 
 ## Available implementations
