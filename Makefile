@@ -9,6 +9,6 @@ add:
 # replace the contents of the README file
 	sed -i 's/LANGUAGE/$(language)/g' $(folder)/README.md
 # add the language in the list of available implementations
-	sed -i 's/\[\/\/\]: \# \"\"/- \[$(language)\]\(implementations\/$(language)\)\n\[\/\/\]: \# \"\"/' README.md
+	sed -i 's/\[\/\/\]: \# \"\"/\[\/\/\]: \# \"\"\n- \[$(language)\]\(implementations\/$(language)\)/' README.md
 
 .PHONY: add

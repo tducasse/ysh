@@ -21,5 +21,5 @@ A custom unix shell, written in multiple languages.
 
 
 ## Available implementations
-- [go](implementations/go)
 [//]: # ""
+- [go](implementations/go)
