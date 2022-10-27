@@ -47,17 +47,16 @@ func readCommand(command string, shell *Shell) bool {
 	return false
 }
 
-func chdir(args []string, shell *Shell) bool {
+func chdir(args []string, shell *Shell) {
 	if len(args) < 1 {
 		fmt.Println("cd expects a directory")
-		return false
+		return
 	}
 	err := os.Chdir(args[0])
 	shell.cwd, _ = os.Getwd()
 	if err != nil {
 		fmt.Println("Cannot change directory to " + args[0])
 	}
-	return false
 }
 
 func addSlash(file fs.DirEntry) string {
@@ -67,14 +66,13 @@ func addSlash(file fs.DirEntry) string {
 	return ""
 }
 
-func list(args []string, shell *Shell) bool {
+func list(args []string, shell *Shell) {
 	files, err := os.ReadDir(shell.cwd)
 	if err != nil {
 		fmt.Println("Cannot read from " + shell.cwd)
-		return false
+		return
 	}
 	for _, file := range files {
 		fmt.Println(file.Name() + addSlash(file))
 	}
-	return false
 }
