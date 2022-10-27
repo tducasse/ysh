@@ -41,5 +41,6 @@ $>
 
 ## Available implementations
 [//]: # ""
+- [js](implementations/js)
 - [nim](implementations/nim)
 - [go](implementations/go)
