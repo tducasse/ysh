@@ -39,6 +39,17 @@ $folder1> cd ..
 $>
 ```
 
+## Goals
+- cd
+- ls
+- mv
+- cp
+- rm
+- touch
+- cat
+- edit (text editor)
+- ...
+
 ## Available implementations
 [//]: # ""
 - [js](implementations/js)
