@@ -38,7 +38,7 @@ proc readCommand(command: string, shell: var Shell): bool =
   return false
 
 proc prompt (shell: var Shell): bool =
-  write(stdout, "$> ")
+  write(stdout, "$" & os.getCurrentDir() & "> ")
   var input = readLine(stdin)
   return readCommand(input, shell)
 
