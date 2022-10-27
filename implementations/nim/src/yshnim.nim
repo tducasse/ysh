@@ -1,5 +1,5 @@
 from os import nil
-import strutils
+from strutils import split
 
 type
   Shell = object
