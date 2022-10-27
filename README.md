@@ -16,8 +16,8 @@ A custom unix shell, written in multiple languages.
   - executes the command `CMD` or says `command not found: CMD`
   - prints the results if any, then prompt the user again
 - built-in commands:
-  - `ls`
-  - `cd`
+  - `ls` without params
+  - `cd PATH`
 - the executable is called `ysh-YOUR_LANGUAGE` to avoid name collisions
 
 
