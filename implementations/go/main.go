@@ -42,7 +42,6 @@ func readCommand(command string, shell *Shell) bool {
 		chdir(args[1:], shell)
 	default:
 		fmt.Println("command not found: " + args[0])
-		return false
 	}
 	return false
 }
