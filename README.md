@@ -11,24 +11,20 @@ A custom unix shell, written in multiple languages.
 
 ## Specification
 - cross-platform (Linux, Windows, Mac)
-- input loop:
-  - prompts the user with `> ` and waits for an input
-  - executes the command `CMD` or says `command not found: CMD`
-  - prints the results if any, then prompt the user again
-- built-in commands:
-  - `ls` without params
-  - `cd PATH`
 - the executable is called `ysh-YOUR_LANGUAGE` to avoid name collisions
+- built-in commands
 
-## Goals
-- cd
-- ls
-- mv
-- cp
-- rm
-- touch
-- cat
-- edit (text editor)
+## Built-in 
+- [x] cd
+- [x] ls
+  - [x] without params
+  - [ ] with params
+- [ ] mv
+- [ ] cp
+- [ ] rm
+- [ ] touch
+- [ ] cat
+- [ ] edit (text editor)
 - ...
 
 ## Available implementations
