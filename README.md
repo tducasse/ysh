@@ -56,17 +56,10 @@ $>
 - [nim](implementations/nim)
 - [go](implementations/go)
 
-## Other suitable languages
-- c
-- c++
-- d
+## A few other languages on my list
 - c#
 - rust
 - python
 - ruby
-- ada
-- pascal
-- zig
 - swift
 - lua
-- ...
