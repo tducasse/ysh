@@ -55,3 +55,15 @@ $>
 - [js](implementations/js)
 - [nim](implementations/nim)
 - [go](implementations/go)
+
+## Other suitable languages
+- c
+- c++
+- d
+- c#
+- ada
+- pascal
+- zig
+- swift
+- lua
+- ...
