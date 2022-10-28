@@ -1,0 +1,13 @@
+{
+  "[rust]": {
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+  },
+  "[nim]": {
+    "editor.formatOnSave": true
+  }
+}
