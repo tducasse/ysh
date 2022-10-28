@@ -62,6 +62,8 @@ $>
 - d
 - c#
 - rust
+- python
+- ruby
 - ada
 - pascal
 - zig
