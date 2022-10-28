@@ -2,17 +2,37 @@ package main
 
 import (
 	"bufio"
+	"flag"
 	"fmt"
 	"io/fs"
 	"os"
 	"strings"
+	"time"
 )
+
+var perf bool
+
+// ---
+// performance measures
+func startTimer(s string) (string, time.Time) {
+	return s, time.Now()
+}
+
+// call with "defer track(startTimer(name))"
+func track(s string, startTime time.Time) {
+	endTime := time.Now()
+	fmt.Println(s, "took", endTime.Sub(startTime))
+}
+
+// ---
 
 type Shell struct {
 	cwd string
 }
 
 func main() {
+	flag.BoolVar(&perf, "perf", false, "write performance logs")
+	flag.Parse()
 	exit := false
 	cwd, _ := os.Getwd()
 	shell := &Shell{
@@ -47,6 +67,9 @@ func readCommand(command string, shell *Shell) bool {
 }
 
 func chdir(args []string, shell *Shell) {
+	if perf {
+		defer track(startTimer("cd"))
+	}
 	if len(args) < 1 {
 		fmt.Println("cd expects a directory")
 		return
@@ -66,6 +89,9 @@ func addSlash(file fs.DirEntry) string {
 }
 
 func list(args []string, shell *Shell) {
+	if perf {
+		defer track(startTimer("ls"))
+	}
 	files, err := os.ReadDir(shell.cwd)
 	if err != nil {
 		fmt.Println("Cannot read from " + shell.cwd)
