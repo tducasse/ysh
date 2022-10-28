@@ -1,5 +1,21 @@
-from os import nil
-from strutils import split
+import strutils
+import times
+import os
+
+
+# ---
+# performance measures
+proc measure(s: string, startTime: float) =
+  var endTime = cpuTime()
+  var elapsed = initDuration(nanoseconds = ((endTime - startTime) * 1000000000).toInt)
+  echo s & " took " & $elapsed
+
+template track(s: string) =
+  when defined perf:
+    var startTime = cpuTime()
+    echo "here"
+    defer: measure(s, startTime)
+# ---
 
 type
   Shell = object
@@ -9,11 +25,13 @@ proc addSlash(kind: os.PathComponent): string =
   return if kind == os.pcDir: "/" else: ""
 
 proc list(args: seq[string], shell: var Shell) =
+  track("ls")
   for file in os.walkDir(".", relative = true):
     echo file.path & addSlash(file.kind)
   return
 
 proc chdir(args: seq[string], shell: var Shell) =
+  track("cd")
   if args.len < 1:
     echo "cd expects a directory"
     return
