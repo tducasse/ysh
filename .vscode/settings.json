@@ -9,5 +9,8 @@
   },
   "[nim]": {
     "editor.formatOnSave": true
+  },
+  "[go]": {
+    "editor.formatOnSave": true,
   }
 }
