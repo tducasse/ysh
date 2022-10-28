@@ -61,6 +61,7 @@ $>
 - c++
 - d
 - c#
+- rust
 - ada
 - pascal
 - zig
