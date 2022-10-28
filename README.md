@@ -20,25 +20,6 @@ A custom unix shell, written in multiple languages.
   - `cd PATH`
 - the executable is called `ysh-YOUR_LANGUAGE` to avoid name collisions
 
-## Example commands
-Given the following structure:
-```
-file.txt
-folder1
-    file2.txt
-```
-```sh
-$> ls
-file.txt folder1/
-$> cd file.txt
-error
-$> cd folder1
-$folder1> ls
-file2.txt
-$folder1> cd ..
-$>
-```
-
 ## Goals
 - cd
 - ls
