@@ -29,6 +29,7 @@ A custom unix shell, written in multiple languages.
 
 ## Available implementations
 [//]: # ""
+- [rust](implementations/rust)
 - [js](implementations/js)
 - [nim](implementations/nim)
 - [go](implementations/go)
