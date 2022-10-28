@@ -8,4 +8,4 @@ The `ysh` shell, implemented in `go`.
 - `go install` to compile and install `ysh-go` in your `$GOPATH/bin` folder (find it with `go env GOPATH`, and add it to your PATH), then run `ysh-go` from anywhere
 
 ## Measure performance
-- `go run . -perf` to print timing logs
+- `go run . -perf` to print timing logs (or `go build -perf` then `./ysh-go`)
