@@ -21,7 +21,7 @@ func startTimer(s string) (string, time.Time) {
 // call with "defer track(startTimer(name))"
 func track(s string, startTime time.Time) {
 	endTime := time.Now()
-	fmt.Println(s, "took", endTime.Sub(startTime))
+	fmt.Println(s, "took", float64(endTime.Sub(startTime).Nanoseconds())/float64(1000000), "ms")
 }
 
 // ---

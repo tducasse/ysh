@@ -7,4 +7,4 @@ The `ysh` shell, implemented in `nim`.
 - `nimble install` then `yshnim` if you added `$HOME/.nimble/bin` to your PATH
 
 ## Measure performance
-- `nim c -r -d:perf` to print timing logs
+- `nim c -r -d:perf src/yshnim.nim` to print timing logs

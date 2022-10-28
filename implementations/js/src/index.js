@@ -8,6 +8,8 @@ const readline = rl.promises.createInterface({
   output: process.stdout,
 });
 
+let startTime;
+
 class Shell {
   constructor(cwd) {
     this.cwd = cwd;
@@ -53,6 +55,9 @@ const addSlash = (file, dir) =>
   lstatSync(path.resolve(dir, file)).isDirectory() ? "/" : "";
 
 const list = async (args, shell) => {
+  if (process.env.PERF) {
+    startTime = performance.now();
+  }
   try {
     const files = await readdir(shell.cwd);
     files.forEach(async (file) => {
@@ -61,10 +66,17 @@ const list = async (args, shell) => {
   } catch (err) {
     console.log("Cannot read from " + shell.cwd);
     return;
+  } finally {
+    if (process.env.PERF) {
+      console.log("ls took " + (performance.now() - startTime) + " ms");
+    }
   }
 };
 
 const chdir = (args, shell) => {
+  if (process.env.PERF) {
+    startTime = performance.now();
+  }
   if (!args.length) {
     console.log("cd expects a directory");
     return;
@@ -74,6 +86,10 @@ const chdir = (args, shell) => {
     shell.cwd = process.cwd();
   } catch (err) {
     console.log("Cannot change directory to " + args[0]);
+  } finally {
+    if (process.env.PERF) {
+      console.log("cd took " + (performance.now() - startTime) + " ms");
+    }
   }
 };
 

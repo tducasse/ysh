@@ -10,9 +10,11 @@
   "description": "The ysh shell in js",
   "main": "src/index.js",
   "scripts": {
-    "prebuild": "esbuild src/index.js --bundle --outfile=build/index.js --platform=node",
+    "lint:fix": "eslint --fix src",
+    "prebuild": "npm run lint:fix && esbuild src/index.js --bundle --outfile=build/index.js --platform=node",
     "build": "pkg build/index.js -c package.json",
     "dev": "node src/index.js",
+    "dev:perf": "PERF=1 npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "pkg": {

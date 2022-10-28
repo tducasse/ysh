@@ -7,13 +7,12 @@ import os
 # performance measures
 proc measure(s: string, startTime: float) =
   var endTime = cpuTime()
-  var elapsed = initDuration(nanoseconds = ((endTime - startTime) * 1000000000).toInt)
-  echo s & " took " & $elapsed
+  var nanoseconds = ((endTime - startTime) * 1000000000).toInt
+  echo s & " took " & $(nanoseconds / 1000000) & " ms"
 
 template track(s: string) =
   when defined perf:
     var startTime = cpuTime()
-    echo "here"
     defer: measure(s, startTime)
 # ---
 
