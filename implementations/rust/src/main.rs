@@ -1,6 +1,7 @@
 use std::{
     env, fs,
     io::{self, Write},
+    time::Instant,
 };
 
 struct Shell {
@@ -13,7 +14,7 @@ fn main() {
     let mut shell = Shell { cwd };
     while !exit {
         exit = prompt(&mut shell);
-        println!("\n")
+        println!("");
     }
 }
 
@@ -40,18 +41,29 @@ fn read_command(command: &String, shell: &mut Shell) -> bool {
     return false;
 }
 
+fn print_time(_instant: Instant) {
+    #[cfg(feature = "perf")]
+    {
+        print!("ls took {:?} ms", _instant.elapsed().as_secs_f32() * 1000.0);
+    }
+}
+
 fn chdir(args: Vec<&str>, shell: &mut Shell) {
+    let instant = Instant::now();
     if !(args.len() > 1) {
-        print!("cd expects a directory")
+        print!("cd expects a directory");
+        return;
     }
     match env::set_current_dir(args[1]) {
         Err(_) => print!("Cannot change directory to {}", args[1]),
         _ => (),
     }
     shell.cwd = env::current_dir().unwrap().as_path().display().to_string();
+    print_time(instant);
 }
 
 fn list(_args: Vec<&str>, shell: &Shell) {
+    let instant = Instant::now();
     let paths = fs::read_dir(&shell.cwd).unwrap();
 
     for path in paths {
@@ -62,4 +74,5 @@ fn list(_args: Vec<&str>, shell: &Shell) {
         }
         println!("{}{}", file.file_name().to_str().unwrap(), slash)
     }
+    print_time(instant);
 }
