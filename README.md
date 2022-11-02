@@ -36,7 +36,6 @@ A custom unix shell, written in multiple languages.
 
 ## A few other languages on my list
 - c#
-- rust
 - python
 - ruby
 - swift
